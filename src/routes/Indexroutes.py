@@ -7,4 +7,4 @@ main = Blueprint('index_blueprint', __name__)
 
 @main.route('/')
 def index():
-    return "Hello, World!!!! from index"
+    return "Hello from Index!"
