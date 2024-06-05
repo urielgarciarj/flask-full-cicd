@@ -22,3 +22,18 @@ def index():
     except Exception:
         traceback.print_exc()
         return "Error: Failed to read data.json"
+    
+@main.route('/<int:user_id>', methods=['GET'])
+def user_by_id(user_id):  # Add the missing parameter user_id
+    try:
+        with open(data_file_path) as file:
+           data = json.load(file)
+        print(f"Data: {data}")  # Debug print
+        for data_item in data:
+            print(f"Data item: {data_item}")  # Debug print
+            if data_item['id'] == int(user_id):
+                print(data_item)
+                return jsonify(data_item)
+    except Exception:
+        traceback.print_exc()
+        return "Error: Failed to add data"
