@@ -6,6 +6,10 @@ app = Flask(__name__)
 def root():
     return "Hello, World!!"
 
+@app.route('/health')
+def health_check():
+    return "Healthy!"
+
 @app.route('/users/<user_id>')
 def get_user(user_id):
     user = {
